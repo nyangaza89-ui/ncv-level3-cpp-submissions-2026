@@ -1,33 +1,33 @@
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 int main()
 {
-    int num1, num2;
-    string message ="Not even";
+    double num, sum = 0, average;
 
-    // INPUT
-    cout << "Enter first number: ";
-    cin >> num1;
+    // FOR LOOP to enter 5 numbers
+    for (int i = 1; i <= 5; i++)
+    {
+        cout << "Enter number " << i << ": ";
+        cin >> num;
 
-    cout << "Enter second number: ";
-    cin >> num2;
-
-    // PROCESS & OUTPUT
-    cout << "-------------------------" << endl;
-
-    if (num1 % 2 == 0 && num2 % 2 == 0)
+        // VALIDATION - avoid -ve number
+        while (num < 0)
         {
-        //cout << num1 << " is Even" << endl;
-        // cout << num2 << " is Even" << endl;
-        cout <<message<<"Even" << endl;
+            cout << "Negative not allowed! Enter number " << i << " again: ";
+            cin >> num;
+        }
 
-         }
-        // else
-         //{
-           // cout << num1 << " is Odd" << endl;
-           // cout << num2 << " is Odd" << endl;
-        // }
+        sum += num;
+    }
+
+        average = sum / 5;
+
+        cout << fixed << setprecision(4);
+        cout << "-------------------------" << endl;
+        cout << "Sum: " << sum << endl;
+        cout << "Average: " << average << endl;
 
     return 0;
 }
